@@ -1,9 +1,10 @@
 import React from 'react'
 
 function About() {
+
   return (
     <div>
-      <h1 className='text-5xl ml-5 mt-20 text-center'>Frequently Asked Questions</h1>
+      <h1 className='text-5xl ml-5 mt-20 text-center'>Frequently Asked Question</h1>
       <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mt-20">
         <div class="collapse-title text-xl font-medium">
           Question 1
