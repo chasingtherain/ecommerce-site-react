@@ -1,8 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 
 function Cart() {
+  const navigate = useNavigate()
   return (
-    <div>Cart</div>
+    <div className='items-center'>
+      <h1 className='text-2xl text-slate-600'>Your cart is empty.</h1>
+      <button className='btn btn-secondary' onClick={() => navigate("/products")}>Add to Cart Now!</button>
+    </div>
   )
 }
 

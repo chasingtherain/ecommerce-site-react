@@ -1,16 +1,16 @@
 import React from 'react'
-import ProductItem from '../components/ProductItem'
+import ProductCard from '../components/ProductCard'
 
 function Products() {
   return (
-    <div>
-        <ProductItem/>
-        <ProductItem/>
-        <ProductItem/>
-        <ProductItem/>
-        <ProductItem/>
-        <ProductItem/>
-        <ProductItem/>
+    <div className='flex flex-wrap gap-16'>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
     </div>
   )
 }

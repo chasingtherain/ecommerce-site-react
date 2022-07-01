@@ -10,6 +10,7 @@ import ThemeSelector from "./components/ThemeSelector";
 import { useTheme } from "./hooks/useTheme";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
+import NotFound from "./pages/NotFound";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/products" element={<Products/>} />
             <Route path="/sign-in" element={<Signin/>} />
             <Route path="/sign-up" element={<Signup/>} />
+            <Route path="/*" element={<NotFound/>} />
             <Route path="*" element ={<Navigate to="/"/>}/>
           </Routes>
         </BrowserRouter>

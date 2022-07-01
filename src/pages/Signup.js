@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSignUp } from '../hooks/useSignUp'
+import { Link } from 'react-router-dom'
 
 function Signup() {
     const {error, signUp} = useSignUp()
@@ -14,6 +15,7 @@ function Signup() {
             <span className="label-text">password</span>
             <input type="password" onChange={(e) => setPassword(e.target.value)} className="input input-bordered w-full max-w-xs" />
             <button className='btn btn-primary' onClick={() => {signUp(email,password)}}>Sign Up</button>
+            <Link to = "/sign-in">Already have an account?</Link>
             {error && <p>{error}</p>}
         </div>
     </div>

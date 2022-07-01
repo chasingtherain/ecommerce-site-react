@@ -1,7 +1,10 @@
 import React from 'react'
-import { Navigate } from 'react-router'
+import { useNavigate } from 'react-router'
+
 
 function Hero() {
+  const navigate = useNavigate()
+
   return (
     <div>
         <div class="hero min-h-screen">
@@ -12,7 +15,7 @@ function Hero() {
             <p class="mb-20">
             There’s nothing better than hitting first chair to get fresh tracks in powder. That deep, fluffy, billowy stuff is what many snowboarders dream about. Snowboarding in powder can feel close to flying—a smooth, elegant, quiet ride where your board doesn’t hit bottom and gravity doesn’t fight you. But riding powder can be a challenge for beginners. If you don’t know the techniques, you’ll spend a lot of time falling and getting up, which will quickly tire you out. Your legs will also burn out more quickly if you’re using poor form.
             </p>
-            <button onClick={() => {<Navigate to="/products"/>}} class="btn btn-primary mb-40">Explore Products</button>
+            <button onClick={() => navigate("/products")} class="btn btn-primary mb-40">Explore Products</button>
             </div>
         </div>
         </div>

@@ -1,6 +1,9 @@
 import React from 'react'
+import { Route, Routes, useNavigate } from 'react-router'
+import ProductDetails from './ProductDetails'
 
-function ProductItem() {
+function ProductCard() {
+  const navigate = useNavigate()
   return (
     <div>
         <div class="card w-96 bg-base-100 shadow-xl">
@@ -11,12 +14,15 @@ function ProductItem() {
             <h2 class="card-title">Shoes!</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions">
-            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-primary" onClick={() => navigate("/products/content")}>Buy Now</button>
             </div>
         </div>
         </div>
+    <Routes> 
+      <Route path= "content" element={<ProductDetails/>}/>
+    </Routes>
     </div>
   )
 }
 
-export default ProductItem
+export default ProductCard

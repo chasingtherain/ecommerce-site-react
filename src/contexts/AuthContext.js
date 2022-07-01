@@ -1,8 +1,8 @@
-import { createContext } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 export const AuthContext = createContext()
 
-export const AuthReducer = (state,action) => {
+export const authReducer = (state,action) => {
     switch(action.type){
         case "LOGIN":
             return {...state, user: action.payload}
@@ -16,6 +16,10 @@ export const AuthReducer = (state,action) => {
 }
 
 export const AuthContextProvider = ({children}) => {
+    const [state, dispatch] = useReducer(authReducer, {
+        user:null
+    })
+
     return(
         <AuthContext.Provider value={{}}>
             {children}
