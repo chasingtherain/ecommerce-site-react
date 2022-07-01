@@ -1,6 +1,5 @@
 import React from 'react'
-import { Route, Routes, useNavigate } from 'react-router'
-import ProductDetails from './ProductDetails'
+import { useNavigate } from 'react-router'
 
 function ProductCard() {
   const navigate = useNavigate()
@@ -14,13 +13,10 @@ function ProductCard() {
             <h2 class="card-title">Shoes!</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions">
-            <button class="btn btn-primary" onClick={() => navigate("/products/content")}>Buy Now</button>
+            <button class="btn btn-primary" onClick={() => navigate("/products/content")}>Add to Cart</button>
             </div>
         </div>
         </div>
-    <Routes> 
-      <Route path= "content" element={<ProductDetails/>}/>
-    </Routes>
     </div>
   )
 }

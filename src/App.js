@@ -11,6 +11,7 @@ import { useTheme } from "./hooks/useTheme";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
+import ProductDetails from "./components/ProductDetails";
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
             <Route exact path="/" element={<Hero/>}/>
             <Route path="/about" element={<About/>} />
             <Route path="/cart" element={<Cart/>} />
-            <Route path="/products" element={<Products/>} />
+            <Route path="/products/*" element={<Products/>} />
+            <Route path="/products/:id" element={<ProductDetails/>} />
             <Route path="/sign-in" element={<Signin/>} />
             <Route path="/sign-up" element={<Signup/>} />
             <Route path="/*" element={<NotFound/>} />
