@@ -12,6 +12,9 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
 import ProductDetails from "./components/ProductDetails";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+
 
 
 function App() {
@@ -36,6 +39,7 @@ function App() {
             <Route path="*" element ={<Navigate to="/"/>}/>
           </Routes>
         </BrowserRouter>
+        <ToastContainer/>
       {/* </ThemeContextProvider> */}
     </div>
   );

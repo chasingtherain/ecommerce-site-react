@@ -1,25 +1,71 @@
 import React, { useState } from 'react'
-import { useSignIn } from '../hooks/useSignIn'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+// import {signInWithEmailAndPassword} from "firebase/auth";
+import {GoogleButton} from "react-google-button"
+// import { auth } from '../firebase-config';
+// import { useAuthContext } from '../hooks/useAuthContext';
 
-function SignIn() {
-    const {error, signIn} = useSignIn()
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
 
+function SignInPage() {
+    const navigate = useNavigate()
+    // const {dispatch, googleLoading, loginWithGoogleRedirect} = useAuthContext()
+    const [userEmail, setUserEmail] = useState("")
+    const [userPassword, setUserPassword] = useState("")
+    const [error, setError] = useState("")
+    const [loginBtnLoading, setLoginBtnLoading] = useState("")
+
+
+    // const signInWithEmail = async () => {
+    //     setLoginBtnLoading("loading")
+    //     await signInWithEmailAndPassword(auth, userEmail, userPassword).then((userCredential) => {
+    //         // Signed in 
+    //         const user = userCredential.user;
+    //         dispatch({type: "LOGIN", payload: user})
+    //         navigate('/')
+    //       })
+    //       .catch((error) => {
+    //         const errorCode = error.code;
+    //         setError(errorCode)
+    //       });
+    //       setLoginBtnLoading("")
+    // } 
+    
     return (
     <div>
-        <div className="form-control w-full max-w-xs">
-            <span className="label-text">email</span>
-            <input type="text" onChange={(e) => setEmail(e.target.value)} placeholder="mario@mail.com" className="input input-bordered w-full max-w-xs" />
-            <span className="label-text">password</span>
-            <input type="password" onChange={(e) => setPassword(e.target.value)} className="input input-bordered w-full max-w-xs" />
-            <button className='btn btn-primary' onClick={() => {signIn(email,password)}}>Sign In</button>
-            {error && <p>{error}</p>}
-            <Link to = "/sign-up">Sign up for an account</Link>
+        <div className="flex flex-col w-full border-opacity-50">
+            <div className='grid h-24 card rounded-box place-items-center'>
+                <button>
+                    <GoogleButton/>
+                </button>
+                {/* to be implemented in future */}
+                {/* <button className='btn' onClick={loginWithFacebookRedirect}> Continue with Facebook </button> */}
+            </div>
+            {/* {googleLoading && <button className="btn loading btn-xs btn-outline btn-secondary">Pending Google to respond</button>} */}
+            <div className="divider">OR</div>
+            <div className="grid h-58 card rounded-box place-items-center my-1">
+                <div className="form-control w-full max-w-xs">
+                    <input type="text" placeholder="Email address" className="input input-bordered w-full max-w-xs" onChange={(event) => setUserEmail(event.target.value)}/>
+                    <input type="password" placeholder="Password" className="input input-bordered w-full max-w-xs my-3" onChange={(event) => setUserPassword(event.target.value)}/>
+                </div>
+                <button className={`btn btn-wide btn-primary my-2 ${loginBtnLoading}`}>LOGIN</button>
+                {error && 
+                    <>
+                        <p className='text-red-600'>Invalid email or password.</p>
+                        <p className='text-red-600'>Sign up below if you haven done so.</p>
+                    </>
+                }
+                
+                <Link to="/forgot-password" className='text-secondary'>Forgot password?</Link>
+            </div>
+            <div className="divider"></div>
+            <div className="grid h-18 card rounded-box place-items-center">
+                <button className="btn btn-wide btn-secondary">
+                    <Link to="/sign-up">Create an account</Link>
+                </button>
+            </div>
         </div>
     </div>
     )
 }
 
-export default SignIn
+export default SignInPage
