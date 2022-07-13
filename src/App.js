@@ -23,7 +23,6 @@ function App() {
 
   return (
     <div className={mode}>
-      {/* <ThemeContextProvider> */}
         <BrowserRouter>
           <Navbar/>
           <ThemeSelector/>
@@ -40,7 +39,6 @@ function App() {
           </Routes>
         </BrowserRouter>
         <ToastContainer/>
-      {/* </ThemeContextProvider> */}
     </div>
   );
 }

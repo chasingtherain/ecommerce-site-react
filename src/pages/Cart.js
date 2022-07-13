@@ -6,7 +6,7 @@ function Cart() {
   return (
     <div className='items-center'>
       <h1 className='text-2xl text-slate-600'>Your cart is empty.</h1>
-      <button className='btn btn-secondary' onClick={() => navigate("/products")}>Add to Cart Now!</button>
+      <button className='btn btn-secondary' onClick={() => navigate("/products")}>Continue Shopping</button>
     </div>
   )
 }

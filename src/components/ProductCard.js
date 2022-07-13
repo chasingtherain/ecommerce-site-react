@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
 
-function ProductCard() {
+function ProductCard({product}) {
   const navigate = useNavigate()
   return (
     <div>
@@ -10,10 +10,11 @@ function ProductCard() {
             <img src= {`https://api.lorem.space/image/shoes?w=400&h=225`} alt="Shoes" class="rounded-xl" />
         </figure>
         <div class="card-body items-center text-center">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <h2 class="card-title">{product.title}</h2>
+            <p>{product.shortDescription}</p>
             <div class="card-actions">
-            <button class="btn btn-primary" onClick={() => navigate("/products/content")}>Add to Cart</button>
+            <button class="btn btn-primary mt-2" onClick={() => navigate("/cart")}>Add to Cart</button>
+            <button class="btn btn-primary mt-2" onClick={() => navigate(`/products/${product.id}`)}>View Product</button>
             </div>
         </div>
         </div>
